@@ -90,16 +90,20 @@ export const TagCloudComponent = () => {
   }, [inlineTagsArray]);
 
   const addNewtag = () => {
-    if (newTagName !== '') {
-      const newElement = document.createElement(newTagName);
+    try {
+      if (newTagName !== '') {
+        const newElement = document.createElement(newTagName);
 
-      // Устанавливаем его текстовое содержимое:
-      newElement.style.display = 'none';
+        // Устанавливаем его текстовое содержимое:
+        newElement.style.display = 'none';
 
-      // Добавляем новый элемент в DOM:
-      document.body.appendChild(newElement);
+        // Добавляем новый элемент в DOM:
+        document.body.appendChild(newElement);
 
-      renderTags(setInlineTagsArray);
+        renderTags(setInlineTagsArray);
+      }
+    } catch {
+      alert('Такого тэга не существует');
     }
   };
 
